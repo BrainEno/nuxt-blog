@@ -2,40 +2,40 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <nuxt-link :to="{ name: '' }" class="header">Roller Grasses</nuxt-link>
+        <NuxtLink to="/" class="header">Roller Grasses</NuxtLink>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile">
-          <nuxt-link :to="{}" class="link">Home</nuxt-link>
-          <nuxt-link :to="{}" class="link">Blogs</nuxt-link>
-          <nuxt-link :to="{}" class="link">Create Post</nuxt-link>
-          <nuxt-link :to="{}" class="link">Login/Register</nuxt-link>
+          <NuxtLink to="/" class="link">Home</NuxtLink>
+          <NuxtLink to="" class="link">Blogs</NuxtLink>
+          <NuxtLink to="" class="link">Create Post</NuxtLink>
+          <NuxtLink to="" class="link">Login/Register</NuxtLink>
         </ul>
       </div>
     </nav>
-    <menuIcon class="menu-icon" v-show="mobile" @click="toggleMobileNav" />
+    <MenuIcon class="menu-icon" v-show="mobile" @click="toggleMobileNav" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <nuxt-link :to="{}" class="link">Home</nuxt-link>
-        <nuxt-link :to="{}" class="link">Blogs</nuxt-link>
-        <nuxt-link :to="{}" class="link">Create Post</nuxt-link>
-        <nuxt-link :to="{}" class="link">Login/Register</nuxt-link>
+        <NuxtLink to="" class="link">Home</NuxtLink>
+        <NuxtLink to="" class="link">Blogs</NuxtLink>
+        <NuxtLink to="" class="link">Create Post</NuxtLink>
+        <NuxtLink to="" class="link">Login/Register</NuxtLink>
       </ul>
     </transition>
   </header>
 </template>
 
 <script>
-import menuIcon from "@/static/assets/icons/bars-regular.svg?inline"
+import MenuIcon from "@/static/assets/icons/bars-regular.svg?inline"
 
 export default {
   name: "Navigation",
-  components: { menuIcon },
+  components: { MenuIcon },
   data() {
     return {
       mobile: null,
       mobileNav: null,
-      windowWidth: null
+      windowWidth: null,
     }
   },
   created() {
@@ -57,8 +57,8 @@ export default {
     },
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -142,5 +142,22 @@ nav {
     padding: 15px 0;
     color: #fff;
   }
+}
+
+.mobile-nav-enter-active,
+.mobile-nav-leave-active {
+  transition: all 1s ease;
+}
+
+.mobile-nav-enter {
+  transform: translateX(-250px);
+}
+
+.mobile-nav-enter-to {
+  transform: translateX(0);
+}
+
+.mobile-nav-leave-to {
+  transform: translateX(-250px);
 }
 </style>

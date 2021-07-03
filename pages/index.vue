@@ -1,52 +1,43 @@
 <template>
-  <div class="app-wrapper">
-    <div class="app">
-      <Navigation />
-    </div>
+  <div class="home">
+    <BlogPost :post="welcomeScreen" />
+    <BlogPost
+      :post="post"
+      v-for="(post, index) in sampleBlogPosts"
+      :key="index"
+    />
   </div>
 </template>
-
-<script lang="ts">
-import Vue from "vue";
-import Navigation from "../components/Navigation.vue";
-
-export default Vue.extend({
-  name: "app",
-  components: { Navigation },
-  data() {
-    return {};
+<script>
+import BlogPost from "~/components/BlogPost.vue"
+export default {
+  name: "Home",
+  components: { BlogPost },
+  key(route) {
+    return route.fullPath
   },
-  created() {},
-  mounted() {},
-  methods: {},
-  watch: {}
-});
+  data() {
+    return {
+      welcomeScreen: {
+        title: "Welcome!",
+        blogPost: "Weekly blog articles with all things ",
+        welcomeScreen: true,
+        photo: "coding",
+      },
+      sampleBlogPosts: [
+        {
+          title: "this is blog Title one",
+          blogHTML:
+            "This is a filter blog post one jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajdkfj",
+          blogCoverPhoto: "wave.png",
+        },
+        {
+          title: "This is blog title two",
+          blogHTML: "This is the second blog post",
+          blogCoverPhoto: "man.png",
+        },
+      ],
+    }
+  },
+}
 </script>
-
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-}
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-.link {
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: black;
-}
-.link-light {
-  color: #fff;
-}
-</style>
