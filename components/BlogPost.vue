@@ -17,12 +17,12 @@
     <div class="blog-photo">
       <img
         v-if="post.welcomeScreen"
-        :src="require('../static/assets/blogPhoto/mask.jpg')"
+        :src="require('../static/assets/blogPhotos/mask.jpg')"
         alt="welcome picture"
       />
       <img
         v-else
-        :src="require(`../static/assets/blogPhoto/${post.blogCoverPhoto}`)"
+        :src="require(`../static/assets/blogPhotos/${post.blogCoverPhoto}`)"
         alt="blog picture"
       />
     </div>
