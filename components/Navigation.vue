@@ -7,7 +7,7 @@
       <div class="nav-links">
         <ul v-show="!mobile">
           <NuxtLink to="/" class="link">Home</NuxtLink>
-          <NuxtLink to="" class="link">Blogs</NuxtLink>
+          <NuxtLink to="/blogs" class="link">Blogs</NuxtLink>
           <NuxtLink to="" class="link">Create Post</NuxtLink>
           <NuxtLink to="" class="link">Login/Register</NuxtLink>
         </ul>
@@ -17,7 +17,7 @@
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
         <NuxtLink to="" class="link">Home</NuxtLink>
-        <NuxtLink to="" class="link">Blogs</NuxtLink>
+        <NuxtLink to="/blogs" class="link">Blogs</NuxtLink>
         <NuxtLink to="" class="link">Create Post</NuxtLink>
         <NuxtLink to="" class="link">Login/Register</NuxtLink>
       </ul>

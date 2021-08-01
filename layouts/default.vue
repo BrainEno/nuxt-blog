@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <Navigation />
+    <Navigation v-if="!navigation" />
     <Nuxt />
-    <Footer />
+    <Footer v-if="!navigation" />
   </div>
 </template>
 
@@ -15,12 +15,28 @@ export default Vue.extend({
   name: "app",
   components: { Navigation, Footer },
   data() {
-    return {}
+    return {
+      navigation: null as null | boolean,
+    }
   },
-  created() {},
+  created() {
+    this.checkRoute()
+  },
   mounted() {},
-  methods: {},
-  watch: {},
+  methods: {
+    checkRoute() {
+      if (["login", "register", "forgotPassword"].includes(this.$route.name!)) {
+        this.navigation = true
+        return
+      }
+      this.navigation = false
+    },
+  },
+  watch: {
+    $route() {
+      this.checkRoute
+    },
+  },
 })
 </script>
 

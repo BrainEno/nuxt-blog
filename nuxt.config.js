@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Roller Grasses",
+    title: "Roller",
     htmlAttrs: {
       lang: "zh",
     },

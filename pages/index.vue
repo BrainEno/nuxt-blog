@@ -63,6 +63,11 @@ export default {
       ],
     }
   },
+  computed: {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
