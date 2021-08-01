@@ -37,11 +37,37 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://localhost:5000/api",
+        httpEndpoint: "http://localhost:4000/graphql",
       },
-    },
-  },
+      // alternativeClient: {
+      //   // required
+      //   httpEndpoint: "http://localhost:4000",
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+      //   // override HTTP endpoint in browser only
+      //   browserHttpEndpoint: "/graphql",
+
+      //   // See https://www.apollographql.com/docs/link/links/http.html#options
+      //   httpLinkOptions: {
+      //     credentials: "same-origin",
+      //   },
+
+      //   // You can use `wss` for secure connection (recommended in production)
+      //   // Use `null` to disable subscriptions
+      //   wsEndpoint: "ws://localhost:4000",
+
+      //   // LocalStorage token
+      //   tokenName: "apollo-token",
+
+      //   // Enable Automatic Query persisting with Apollo Engine
+      //   persisting: false,
+
+      //   // Use websockets for everything (no HTTP)
+      //   // You need to pass a `wsEndpoint` for this to work
+      //   websocketsOnly: false,
+      // },
+    },
+
+    // Build Configuration: https://go.nuxtjs.dev/config-build
+    build: {},
+  },
 }

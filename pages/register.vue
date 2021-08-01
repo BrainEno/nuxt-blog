@@ -31,6 +31,7 @@
 import Email from "@/static/assets/icons/envelope-regular.svg?inline"
 import Password from "@/static/assets/icons/lock-alt-solid.svg?inline"
 import User from "@/static/assets/icons/user-alt-light.svg?inline"
+import { mapState, mapActions } from "vuex"
 
 export default {
   name: "register",
@@ -45,6 +46,14 @@ export default {
       email: "",
       password: "",
     }
+  },
+  computed: { ...mapState(["isRegistered"]) },
+  methods: {
+    async register() {
+      if (this.email || this.password || this.username) {
+        return
+      }
+    },
   },
 }
 </script>
